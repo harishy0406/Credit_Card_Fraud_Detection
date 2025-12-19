@@ -33,9 +33,5 @@ This project applies and compares multiple classification algorithms to identify
    python src/train_baseline.py
    ```
 
-**What you learn**
-- Dealing with highly imbalanced datasets
-- Applying and comparing advanced classification techniques
-- Evaluating models for fraud detection beyond accuracy
 
 
