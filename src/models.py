@@ -31,6 +31,3 @@ def build_models() -> Dict[str, object]:
         ),
     }
     return models
-
-
-
