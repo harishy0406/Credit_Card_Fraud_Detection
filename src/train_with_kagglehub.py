@@ -131,5 +131,3 @@ def train_and_evaluate_with_resampling() -> None:
 
 if __name__ == "__main__":
     train_and_evaluate_with_resampling()
-
-
