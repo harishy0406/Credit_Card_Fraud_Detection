@@ -20,7 +20,6 @@ from typing import Dict
 import numpy as np
 
 import kagglehub
-from kagglehub import KaggleDatasetAdapter
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline
 
@@ -31,17 +30,23 @@ from models import build_models
 
 def download_dataset_to_csv(csv_path: str = "data/creditcard.csv") -> None:
     """Download the Kaggle credit card fraud dataset and save as a local CSV."""
+    import pandas as pd
+
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
 
-    file_path = "creditcard.csv"
-    df = kagglehub.load_dataset(
-        KaggleDatasetAdapter.PANDAS,
-        "mlg-ulb/creditcardfraud",
-        file_path,
-    )
-
-    df.to_csv(csv_path, index=False)
-    print(f"Dataset downloaded and saved to {csv_path}")
+    try:
+        # Try using kagglehub
+        print("Attempting to download with kagglehub...")
+        path = kagglehub.dataset_download("mlg-ulb/creditcardfraud")
+        csv_file = os.path.join(path, "creditcard.csv")
+        df = pd.read_csv(csv_file)
+        df.to_csv(csv_path, index=False)
+        print(f"Dataset downloaded and saved to {csv_path}")
+    except Exception as e:
+        print(f"KaggleHub download failed: {e}")
+        print("Please download creditcard.csv manually from https://www.kaggle.com/mlg-ulb/creditcardfraud")
+        print(f"and place it at {csv_path}")
+        raise
 
 
 def train_and_evaluate_with_resampling() -> None:

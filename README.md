@@ -32,6 +32,7 @@ This project applies and compares multiple classification algorithms to identify
    ```bash
    python src/train_baseline.py
    ```
-
+   
+**Snapshots**
 
 

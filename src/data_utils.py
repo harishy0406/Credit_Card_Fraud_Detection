@@ -35,22 +35,32 @@ def load_creditcard_data(
     X = df.drop(columns=["Class"])
     y = df["Class"].values
 
+    # Check if we have enough samples for stratification
+    y_int = y.astype(int)
+    min_class_count = min(np.bincount(y_int))
+    use_stratification = min_class_count >= 2
+
+    stratify_param = y if use_stratification else None
+    if not use_stratification:
+        print("Warning: Not enough samples for stratification, using random split")
+
     # First split into train+val and test
     X_train_val, X_test, y_train_val, y_test = train_test_split(
         X,
         y,
         test_size=test_size,
-        stratify=y,
+        stratify=stratify_param,
         random_state=random_state,
     )
 
     # Then split train and validation
     val_relative_size = val_size / (1.0 - test_size)
+    stratify_train_val = y_train_val if use_stratification else None
     X_train, X_val, y_train, y_val = train_test_split(
         X_train_val,
         y_train_val,
         test_size=val_relative_size,
-        stratify=y_train_val,
+        stratify=stratify_train_val,
         random_state=random_state,
     )
 
