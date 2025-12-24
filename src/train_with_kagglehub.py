@@ -1,6 +1,14 @@
 """
 End-to-end credit card fraud detection using KaggleHub to fetch the dataset.
 
+InternShip Details:
+- Name: M HARISH GAUTHAM
+- Project ID: #CC69844
+- Project Title: Credit Card Fraud Detection
+- Internship Domain: Data Science Intern
+- Project Level: Intermediate Level
+- Assigned By: CodeClause Internship
+
 What this script does:
 - Downloads the latest credit card fraud dataset from Kaggle via kagglehub
 - Saves it to data/creditcard.csv

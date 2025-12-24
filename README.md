@@ -1,5 +1,13 @@
 ## Credit Card Fraud Detection (Machine Learning)
 
+**InternShip Details:**
+- **Name:** M HARISH GAUTHAM
+- **Project ID:** #CC69844
+- **Project Title:** Credit Card Fraud Detection
+- **Internship Domain:** Data Science Intern
+- **Project Level:** Intermediate Level
+- **Assigned By:** CodeClause Internship
+
 **Aim**  
 Detect fraudulent credit card transactions using advanced machine learning techniques.
 
