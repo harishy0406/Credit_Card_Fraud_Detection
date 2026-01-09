@@ -80,7 +80,6 @@ def train_and_evaluate() -> None:
 
     print_detailed_report(y_test, y_test_pred)
 
-
 if __name__ == "__main__":
     train_and_evaluate()
 
