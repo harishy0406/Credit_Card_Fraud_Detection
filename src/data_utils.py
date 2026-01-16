@@ -16,7 +16,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-
 def load_creditcard_data(
     csv_path: str = "data/creditcard.csv",
     test_size: float = 0.2,
